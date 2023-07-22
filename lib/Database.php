@@ -43,7 +43,25 @@ require_once('config/config.php');
         }
     }
 
-    
+    // Update Query
+    public function update($query){
+        $result = mysqli_query($this->link,$query) or die($this->link->error . __LINE__);
+        if($result){
+            return $result;
+        }else{
+            return false;
+        }
+    }
+
+      // Delete Query
+      public function delete($query){
+        $result = mysqli_query($this->link,$query) or die($this->link->error . __LINE__);
+        if($result){
+            return $result;
+        }else{
+            return false;
+        }
+    }
  }
 
  ?>
