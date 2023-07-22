@@ -1,6 +1,8 @@
 <?php
+include_once('db.php');
 include_once('components/header.php');
 include_once('components/banner.php');
+
 ?>
 
 <section class="site-section py-sm">
@@ -143,7 +145,7 @@ include_once('components/banner.php');
 
       <!-- END main-content -->
 
-       <?php
+      <?php
        include_once('components/sidebar.php');
        ?>
       <!-- END sidebar -->
