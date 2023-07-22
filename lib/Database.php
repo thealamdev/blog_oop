@@ -32,6 +32,18 @@ require_once('config/config.php');
             return false;
         }
     }
+
+    // Insert Query
+    public function insert($query){
+        $result = mysqli_query($this->link,$query) or die($this->link->error.__LINE__);
+        if($result){
+            return $result;
+        }else{
+            return false;
+        }
+    }
+
+    
  }
 
  ?>
