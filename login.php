@@ -3,7 +3,7 @@
 include_once('Controllers/Register.php');
 $register = new Register();
 if(isset($_POST['register'])){
-    $register->addUser($_POST);
+    $users = $register->addUser($_POST);
 }
  
 
@@ -25,8 +25,19 @@ if(isset($_POST['register'])){
 <body>
 
 
+
+
     <div class="row d-flex align-items-center" style="margin-top: 100px;">
+
+
         <div class="col-lg-5 m-auto">
+            <?php if(isset($users)){ ?>
+             
+            <div class="alert alert-primary" role="alert">
+                <?=$users?>
+            </div>
+            <?php   
+           } ?>
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
@@ -43,6 +54,9 @@ if(isset($_POST['register'])){
                 <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
                     tabindex="0">
                     <div class="card">
+
+
+
 
 
                         <div class="card-body">
