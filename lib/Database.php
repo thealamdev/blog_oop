@@ -62,6 +62,14 @@ require_once('config/config.php');
             return false;
         }
     }
+
+    // Return data:
+
+    public static function return($data){
+        echo "<pre>"; 
+        print_r($data);
+        echo "</pre>";
+    }
  }
 
  ?>

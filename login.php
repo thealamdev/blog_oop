@@ -1,3 +1,16 @@
+<?php
+
+include_once('Controllers/Register.php');
+$register = new Register();
+if(isset($_POST['register'])){
+    $register->addUser($_POST);
+}
+ 
+
+
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -33,7 +46,7 @@
 
 
                         <div class="card-body">
-                            <form>
+                            <form action=" " method="POST">
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email<span
                                             class="text-danger">*</span></label>
@@ -62,7 +75,7 @@
 
 
                         <div class="card-body">
-                            <form>
+                            <form action=" " method="POST">
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Name<span class="text-danger">*</span></label>
                                     <input type="text" name="name" class="form-control">
