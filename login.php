@@ -12,14 +12,8 @@
 <body>
 
 
-
-
-
-
-
-
     <div class="row d-flex align-items-center" style="margin-top: 100px;">
-        <div class="col-lg-6 m-auto">
+        <div class="col-lg-5 m-auto">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
@@ -41,16 +35,17 @@
                         <div class="card-body">
                             <form>
                                 <div class="mb-3">
-                                    <label for="email" class="form-label">Email*</label>
+                                    <label for="email" class="form-label">Email<span class="text-danger">*</span></label>
                                     <input type="email" name="email" class="form-control">
                                     <div id="emailHelp" class="form-text"></div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="password" class="form-label">Password*</label>
+                                    <label for="password" class="form-label">Password<span class="text-danger">*</span></label>
                                     <input type="password" name="password" class="form-control">
                                 </div>
 
                                 <button type="submit" name="login" class="btn btn-primary">Login</button>
+                                <a href="#" class="float-end">Forget password ?</a>
                             </form>
                         </div>
                     </div>
@@ -63,22 +58,22 @@
                         <div class="card-body">
                             <form>
                                 <div class="mb-3">
-                                    <label for="name" class="form-label">Name*</label>
+                                    <label for="name" class="form-label">Name<span class="text-danger">*</span></label>
                                     <input type="text" name="name" class="form-control">
 
                                 </div>
                                 <div class="mb-3">
-                                    <label for="email" class="form-label">Email*</label>
+                                    <label for="email" class="form-label">Email<span class="text-danger">*</span></label>
                                     <input type="email" name="email" class="form-control">
 
                                 </div>
                                 <div class="mb-3">
-                                    <label for="password" class="form-label">Password*</label>
+                                    <label for="password" class="form-label">Password<span class="text-danger">*</span></label>
                                     <input type="password" name="password" class="form-control">
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="c_pass" class="form-label">Confirm Password*</label>
+                                    <label for="c_pass" class="form-label">Confirm Password<span class="text-danger">*</span></label>
                                     <input type="password" name="c_pass" class="form-control">
                                 </div>
 
