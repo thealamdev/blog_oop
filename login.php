@@ -35,18 +35,24 @@
                         <div class="card-body">
                             <form>
                                 <div class="mb-3">
-                                    <label for="email" class="form-label">Email<span class="text-danger">*</span></label>
+                                    <label for="email" class="form-label">Email<span
+                                            class="text-danger">*</span></label>
                                     <input type="email" name="email" class="form-control">
                                     <div id="emailHelp" class="form-text"></div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="password" class="form-label">Password<span class="text-danger">*</span></label>
+                                    <label for="password" class="form-label">Password<span
+                                            class="text-danger">*</span></label>
                                     <input type="password" name="password" class="form-control">
                                 </div>
 
                                 <button type="submit" name="login" class="btn btn-primary">Login</button>
                                 <a href="#" class="float-end">Forget password ?</a>
                             </form>
+                        </div>
+
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-info">Send Mail</a>
                         </div>
                     </div>
                 </div>
@@ -63,23 +69,28 @@
 
                                 </div>
                                 <div class="mb-3">
-                                    <label for="email" class="form-label">Email<span class="text-danger">*</span></label>
+                                    <label for="email" class="form-label">Email<span
+                                            class="text-danger">*</span></label>
                                     <input type="email" name="email" class="form-control">
 
                                 </div>
                                 <div class="mb-3">
-                                    <label for="password" class="form-label">Password<span class="text-danger">*</span></label>
+                                    <label for="password" class="form-label">Password<span
+                                            class="text-danger">*</span></label>
                                     <input type="password" name="password" class="form-control">
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="c_pass" class="form-label">Confirm Password<span class="text-danger">*</span></label>
+                                    <label for="c_pass" class="form-label">Confirm Password<span
+                                            class="text-danger">*</span></label>
                                     <input type="password" name="c_pass" class="form-control">
                                 </div>
 
                                 <button type="submit" name="register" class="btn btn-primary">Register</button>
                             </form>
                         </div>
+
+
                     </div>
                 </div>
 
