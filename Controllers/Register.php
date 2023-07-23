@@ -23,9 +23,9 @@ class Register
 
             $mail = new PHPMailer(true);
 
-            try {
+           
                 //Server settings
-                $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+                // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
                 $mail->isSMTP();                                            //Send using SMTP
                 $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
                 $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
@@ -39,7 +39,7 @@ class Register
                 $mail->addAddress($email);     //Add a recipient
                 
 
-                $emil_templete = "<a href='http://localhost/blog/email-verify.php?token=$remember_token'>Click here</a>";
+                $emil_templete = "<a href='http://localhost/blog/Mail/MailVerify.php?token=$remember_token'>Click here</a>";
                 //Content
                 $mail->isHTML(true);                                  //Set email format to HTML
                 $mail->Subject = 'Email Verification form Xefy';
@@ -47,10 +47,7 @@ class Register
                  
 
                 $mail->send();
-                echo 'Message has been sent';
-            } catch (Exception $e) {
                 
-            }
         }
 
         // Database::return(($request));
