@@ -67,7 +67,7 @@ class Register
             return $error;
             header("location:login.php");
         } else {
-            if ($check_mail > 0) {
+            if ($check_mail == true) {
                 $error = "Email already Exists";
                 return $error;
                 header('location:login.php');
