@@ -39,10 +39,10 @@ class Register
                 $mail->addAddress($email);     //Add a recipient
                 
 
-                $emil_templete = "<a href='http://localhost/blog/Mail/MailVerify.php?token=$remember_token'>Click here</a>";
+                $emil_templete = "<a href='http://localhost/blog/mailverify/email-verify.php?token=$remember_token'>Click here</a>";
                 //Content
                 $mail->isHTML(true);                                  //Set email format to HTML
-                $mail->Subject = 'Email Verification form Xefy';
+                $mail->Subject = 'Email Verification form Xefy'.$remember_token;
                 $mail->Body    =  $emil_templete;
                  
 
