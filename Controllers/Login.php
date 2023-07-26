@@ -2,32 +2,39 @@
 include_once('lib/Database.php');
 include_once('helpers/Format.php');
 include_once('lib/Session.php');
-// Session::start();
+
 class Login
 {
-    public $db;
-    public $se;
+    private $db;
+    private $se;
 
     public function Authlogin($request)
     {
-
-        Database::return($request);
-
         $email = Format::validation($request['email']);
-        $password = Format::validation(($request['password']));
+        $password = Format::validation($request['password']);
 
-        $login_query = "SELECT id,name,email,password FROM users WHERE email = '$email' AND password = '$password'";
-        $login_check = $this->db->select($login_query);
-        $login_details = mysqli_fetch_assoc($login_check);
-        if($login_check == true){
-            return "fne";
-            // Database::return($login_details);
-             Session::set('login',$login_details['id']);
-            // Session::set('name',$login_details['name']);
-            // Session::set('email',$login_details['email']);
+        if (empty($email) || empty($password)) {
+            $error = "Fields must be filled up";
+            return $error;
+        } else {
+            $login_query = "SELECT name, email, password, status FROM users WHERE email = '$email' AND password = '$password'";
+            $login_check = $this->db->select($login_query);
 
-        }else{
-            return "Your info is not correct";
+            if ($login_check && mysqli_num_rows($login_check) > 0) {
+                $login_details = mysqli_fetch_assoc($login_check);
+                if ($login_details['status'] == 0) {
+                    $error = "Please Verify Your Email";
+                    return $error;
+                } else {
+                    Session::set('login',true);
+                    Session::set('name',$login_details['name']);
+                    header('location:'.$base.'Admin/index.php');
+                    exit; 
+                }
+            } else {
+                $error = "Credentials are not matched";
+                return $error;
+            }
         }
     }
 

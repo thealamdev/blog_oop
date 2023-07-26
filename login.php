@@ -2,18 +2,18 @@
 include_once('lib/Session.php');
 include_once('Controllers/Register.php');
 include_once('Controllers/Login.php');
-// Session::start();
+Session::authCheck();
 $register = new Register();
 $login = new Login();
 
-if(isset($_POST['register'])){
+if (isset($_POST['register'])) {
     $users = $register->addUser($_POST);
 }
 
-if(isset($_POST['login'])){
+if (isset($_POST['login'])) {
     $auth_login = $login->Authlogin($_POST);
 }
- 
+
 
 
 
@@ -26,8 +26,7 @@ if(isset($_POST['login'])){
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login & Registration</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 
 <body>
@@ -40,50 +39,47 @@ if(isset($_POST['login'])){
 
         <div class="col-lg-5 m-auto">
 
-            <?php if(isset($_SESSION['success'])){?>
-            <div class="alert alert-primary" role="alert">
-                <?=Session::get('success')?>
-            </div>
+            <?php if (isset($_SESSION['success'])) { ?>
+                <div class="alert alert-primary" role="alert">
+                    <?= Session::get('success') ?>
+                </div>
             <?php
-        }
-        ?>
+            }
+            ?>
 
 
-            <?php if(isset($_SESSION['error'])){?>
-            <div class="alert alert-primary" role="alert">
-                <?=Session::get('error')?>
-            </div>
+            <?php if (isset($_SESSION['error'])) { ?>
+                <div class="alert alert-primary" role="alert">
+                    <?= Session::get('error') ?>
+                </div>
             <?php
-        }
-        ?>
+            }
+            ?>
 
             <?php
-echo Session::get('login');
+            echo Session::get('login');
 
 
-?>
-            <?php if(isset($users)){ ?>
-            <div class="alert alert-primary" role="alert">
-                <?=$users?>
-            </div>
-            <?php   
-           } ?>
+            ?>
+            <?php if (isset($users)) { ?>
+                <div class="alert alert-primary" role="alert">
+                    <?= $users ?>
+                </div>
+            <?php
+            } ?>
 
-            <?php if(isset($auth_login)){ ?>
-            <div class="alert alert-primary" role="alert">
-                <?=$auth_login?>
-            </div>
-            <?php   
-           } ?>
+            <?php if (isset($auth_login)) { ?>
+                <div class="alert alert-primary" role="alert">
+                    <?= $auth_login ?>
+                </div>
+            <?php
+            } ?>
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
-                        type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Login</button>
+                    <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Login</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="profile-tab" data-bs-toggle="tab"
-                        data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane"
-                        aria-selected="false">Registration</button>
+                    <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Registration</button>
                 </li>
 
             </ul>
@@ -95,14 +91,12 @@ echo Session::get('login');
                         <div class="card-body">
                             <form action=" " method="POST">
                                 <div class="mb-3">
-                                    <label for="email" class="form-label">Email<span
-                                            class="text-danger">*</span></label>
+                                    <label for="email" class="form-label">Email<span class="text-danger">*</span></label>
                                     <input type="email" name="email" class="form-control">
                                     <div id="emailHelp" class="form-text"></div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="password" class="form-label">Password<span
-                                            class="text-danger">*</span></label>
+                                    <label for="password" class="form-label">Password<span class="text-danger">*</span></label>
                                     <input type="password" name="password" class="form-control">
                                 </div>
 
@@ -116,8 +110,7 @@ echo Session::get('login');
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade show active" id="profile-tab-pane" role="tabpanel"
-                    aria-labelledby="profile-tab" tabindex="0">
+                <div class="tab-pane fade show active" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
                     <div class="card">
 
 
@@ -129,20 +122,17 @@ echo Session::get('login');
 
                                 </div>
                                 <div class="mb-3">
-                                    <label for="email" class="form-label">Email<span
-                                            class="text-danger">*</span></label>
+                                    <label for="email" class="form-label">Email<span class="text-danger">*</span></label>
                                     <input type="email" name="email" class="form-control">
 
                                 </div>
                                 <div class="mb-3">
-                                    <label for="password" class="form-label">Password<span
-                                            class="text-danger">*</span></label>
+                                    <label for="password" class="form-label">Password<span class="text-danger">*</span></label>
                                     <input type="password" name="password" class="form-control">
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="c_pass" class="form-label">Confirm Password<span
-                                            class="text-danger">*</span></label>
+                                    <label for="c_pass" class="form-label">Confirm Password<span class="text-danger">*</span></label>
                                     <input type="password" name="c_pass" class="form-control">
                                 </div>
 
@@ -160,13 +150,12 @@ echo Session::get('login');
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
     </script>
 </body>
 
 </html>
 
 <?php
- Session::destroy();
+Session::destroy();
 ?>

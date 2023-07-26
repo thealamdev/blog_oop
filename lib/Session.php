@@ -2,7 +2,9 @@
 
 class Session{
     public static function start(){
-        session_start();
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
     }
 
     public static function set($key, $value){
@@ -11,6 +13,7 @@ class Session{
     }
 
     public static function get($key){
+        self::start();
         if(isset($_SESSION[$key])){
             return $_SESSION[$key];
         }else{
@@ -20,20 +23,23 @@ class Session{
 
     public static function authCheck(){
         self::start();
-        if($_SESSION['login'] == true){
+        if(isset($_SESSION['login']) && $_SESSION['login'] == true){
             header('location:index.php');
+            exit; // Make sure to exit after the redirect
         } 
     }
 
     public static function sessionCheck(){
         self::start();
-        if($_SESSION['login'] == false){
+        if(!isset($_SESSION['login']) || $_SESSION['login'] == false){
             self::destroy();
             header('location:login.php');
+            exit; // Make sure to exit after the redirect
         }
     }
 
     public static function destroy(){
+        self::start();
         session_destroy();
         // header('location:login.php');
     }
