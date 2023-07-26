@@ -1,6 +1,7 @@
 <?php
-
+include_once('lib/Session.php');
 include_once('Controllers/Register.php');
+Session::start();
 $register = new Register();
 if(isset($_POST['register'])){
     $users = $register->addUser($_POST);
@@ -31,8 +32,26 @@ if(isset($_POST['register'])){
 
 
         <div class="col-lg-5 m-auto">
+
+            <?php if(isset($_SESSION['success'])){?>
+            <div class="alert alert-primary" role="alert">
+                <?=Session::get('success')?>
+            </div>
+            <?php
+        }
+        ?>
+
+
+            <?php if(isset($_SESSION['error'])){?>
+            <div class="alert alert-primary" role="alert">
+                <?=Session::get('error')?>
+            </div>
+            <?php
+        }
+        ?>
+
+
             <?php if(isset($users)){ ?>
-             
             <div class="alert alert-primary" role="alert">
                 <?=$users?>
             </div>
@@ -133,3 +152,7 @@ if(isset($_POST['register'])){
 </body>
 
 </html>
+
+<?php
+echo Session::destroy();
+?>

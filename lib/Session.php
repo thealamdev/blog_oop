@@ -35,6 +35,6 @@ class Session{
 
     public static function destroy(){
         session_destroy();
-        header('location:login.php');
+        // header('location:login.php');
     }
 }
