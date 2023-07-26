@@ -156,6 +156,3 @@ if (isset($_POST['login'])) {
 
 </html>
 
-<?php
-Session::destroy();
-?>

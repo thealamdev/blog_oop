@@ -1,4 +1,9 @@
 <?php
+ob_start();
+include_once('../lib/Session.php');
+Session::start();
+
+
 include_once('components/header.php');
 include_once('components/sidebar.php');
 

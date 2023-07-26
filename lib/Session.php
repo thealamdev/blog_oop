@@ -1,5 +1,5 @@
 <?php
-include_once('config/config.php');
+
 class Session{
     public static function start(){
         if (session_status() == PHP_SESSION_NONE) {
@@ -40,7 +40,14 @@ class Session{
 
     public static function destroy(){
         self::start();
-        session_destroy();
-        // header('location:login.php');
+        if(isset($_SESSION['login']) && $_SESSION['login'] == true){
+            session_unset();
+            session_destroy();
+        }
+         
+        header('http://localhost/blog/login.php');
+       
     }
 }
+
+ 
