@@ -1,10 +1,17 @@
 <?php
 include_once('lib/Session.php');
 include_once('Controllers/Register.php');
-Session::start();
+include_once('Controllers/Login.php');
+// Session::start();
 $register = new Register();
+$login = new Login();
+
 if(isset($_POST['register'])){
     $users = $register->addUser($_POST);
+}
+
+if(isset($_POST['login'])){
+    $auth_login = $login->Authlogin($_POST);
 }
  
 
@@ -50,10 +57,21 @@ if(isset($_POST['register'])){
         }
         ?>
 
+            <?php
+echo Session::get('login');
 
+
+?>
             <?php if(isset($users)){ ?>
             <div class="alert alert-primary" role="alert">
                 <?=$users?>
+            </div>
+            <?php   
+           } ?>
+
+            <?php if(isset($auth_login)){ ?>
+            <div class="alert alert-primary" role="alert">
+                <?=$auth_login?>
             </div>
             <?php   
            } ?>
@@ -63,15 +81,14 @@ if(isset($_POST['register'])){
                         type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Login</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
-                        type="button" role="tab" aria-controls="profile-tab-pane"
+                    <button class="nav-link active" id="profile-tab" data-bs-toggle="tab"
+                        data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane"
                         aria-selected="false">Registration</button>
                 </li>
 
             </ul>
             <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
-                    tabindex="0">
+                <div class="tab-pane fade" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
                     <div class="card">
 
 
@@ -99,8 +116,8 @@ if(isset($_POST['register'])){
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade show active" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
-                    tabindex="0">
+                <div class="tab-pane fade show active" id="profile-tab-pane" role="tabpanel"
+                    aria-labelledby="profile-tab" tabindex="0">
                     <div class="card">
 
 
@@ -151,5 +168,5 @@ if(isset($_POST['register'])){
 </html>
 
 <?php
-echo Session::destroy();
+ Session::destroy();
 ?>
