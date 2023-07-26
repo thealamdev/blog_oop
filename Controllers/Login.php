@@ -28,7 +28,7 @@ class Login
                 } else {
                     Session::set('login',true);
                     Session::set('name',$login_details['name']);
-                    header('location:'.$base.'Admin/index.php');
+                    Session::authCheck();
                     exit; 
                 }
             } else {

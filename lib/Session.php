@@ -1,5 +1,5 @@
 <?php
-
+include_once('config/config.php');
 class Session{
     public static function start(){
         if (session_status() == PHP_SESSION_NONE) {
@@ -24,7 +24,7 @@ class Session{
     public static function authCheck(){
         self::start();
         if(isset($_SESSION['login']) && $_SESSION['login'] == true){
-            header('location:index.php');
+            header('location:'.$base.'Admin/index.php');
             exit; // Make sure to exit after the redirect
         } 
     }
@@ -33,7 +33,7 @@ class Session{
         self::start();
         if(!isset($_SESSION['login']) || $_SESSION['login'] == false){
             self::destroy();
-            header('location:login.php');
+            header('location:'.$base.'login.php');
             exit; // Make sure to exit after the redirect
         }
     }

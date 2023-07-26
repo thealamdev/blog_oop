@@ -2,7 +2,7 @@
 include_once('lib/Session.php');
 include_once('Controllers/Register.php');
 include_once('Controllers/Login.php');
-Session::authCheck();
+ 
 $register = new Register();
 $login = new Login();
 
