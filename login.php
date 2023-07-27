@@ -56,11 +56,7 @@ if (isset($_POST['login'])) {
             }
             ?>
 
-            <?php
-            echo Session::get('login');
-
-
-            ?>
+             
             <?php if (isset($users)) { ?>
                 <div class="alert alert-primary" role="alert">
                     <?= $users ?>
