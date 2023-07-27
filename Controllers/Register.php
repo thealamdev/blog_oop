@@ -1,6 +1,7 @@
 <?php
-include_once('lib/Database.php');
-include_once('helpers/Format.php');
+include_once __DIR__ . '/../lib/Database.php';
+include_once __DIR__ . '/../helpers/Format.php';
+
 
 require 'vendor/autoload.php';
 
