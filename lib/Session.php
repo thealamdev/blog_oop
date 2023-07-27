@@ -40,13 +40,9 @@ class Session{
 
     public static function destroy(){
         self::start();
-        if(isset($_SESSION['login']) && $_SESSION['login'] == true){
             session_unset();
             session_destroy();
-        }
-         
-        header('http://localhost/blog/login.php');
-       
+            header('http://localhost/blog/login.php');
     }
 }
 
