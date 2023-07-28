@@ -49,7 +49,7 @@
                          <span>Category</span>
                      </a>
                      <ul class="sub-menu" aria-expanded="true">
-                         <li><a href="category/create.php">Add Category</a></li>
+                         <li><a href="<?php echo $base. 'admin/category/create.php' ?>">Add Category</a></li>
                          <li><a href="">Add Category</a></li>
                           
                      </ul>

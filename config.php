@@ -1,16 +1,8 @@
 <?php
-
-define('HOST','localhost');
-define('USER','root');
-define('PASSWORD','123');
-define('DATABASE','xefy_blog');
-
-
 $server = $_SERVER['SERVER_NAME'];
 $full_uri = ($_SERVER['REQUEST_URI']);
 $uri =  explode('/',$full_uri);
 $base =  'http://'.$server.'/'.$uri[1].'/';
-
 
 function include_file($filename) {
     // Define the root directory path
@@ -21,7 +13,7 @@ function include_file($filename) {
         $root_path,                       // Root directory
         $root_path . '/lib',              // lib folder
         $root_path . '/config',           // config folder
-        $root_path . '/components',        // component folder
+        $root_path . '/component',        // component folder
         $root_path . '/Controllers',      // Controllers folder
         $root_path . '/helpers',  
         $root_path . '/admin',
@@ -41,4 +33,5 @@ function include_file($filename) {
     // If the file is not found in any directory, throw an error
     trigger_error("File '$filename' not found.", E_USER_ERROR);
 }
+
 ?>

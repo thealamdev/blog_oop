@@ -1,4 +1,7 @@
+ <?php
+include_once __DIR__ . '../../../config.php';
 
+ ?>
 <!doctype html>
 <html lang="en">
 
@@ -9,9 +12,9 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <link rel="shortcut icon" href="assets/images/favicon.ico">
-    <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
-    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    <link href="<?=$base . 'admin/assets/css/bootstrap.min.css'?>" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <link href="<?=$base. 'admin/assets/css/icons.min.css'?>" rel="stylesheet" type="text/css" />
+    <link href="<?=$base. 'admin/assets/css/app.min.css'?>" id="app-style" rel="stylesheet" type="text/css" />
 </head>
 
 
@@ -264,7 +267,10 @@
                             <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-4.jpg" alt="Header Avatar">
                             <span class="d-none d-xl-inline-block ms-1 fw-medium font-size-15">
                                 <?php
-                                echo Session::get('name');
+                                 
+                                // echo Session::get('name');
+                                echo $base;
+                                 
                                 ?>
                             </span>
                             <i class="uil-angle-down d-none d-xl-inline-block font-size-15"></i>

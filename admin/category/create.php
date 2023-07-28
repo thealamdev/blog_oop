@@ -1,11 +1,9 @@
+  
 <?php
+include_once '../components/header.php';
+include_once '../components/sidebar.php';
 
-// include_once('../../lib/Session.php');
-include('../components/header.php');
-include('../components/sidebar.php');
-
- ?>
-
+?>
 
 <div class="card">
     <div class="card-body">
@@ -86,7 +84,6 @@ include('../components/sidebar.php');
     </div>
 </div>
 
-
 <?php
- include_once('../components/footer.php');
- ?>
+include_file('footer.php');
+?>
