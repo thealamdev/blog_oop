@@ -21,15 +21,7 @@
  <body>
 
      <div id="layout-wrapper">
-         <?php
-
-
-            // Include 'Category.php' from the custom directory '/admin/AdminControllers'
-            // Include 'Category.php' from the custom directory '/admin/AdminControllers'
-include_file('Category.php', array(__DIR__ . '/admin/AdminControllers'));
-
-
-            ?>
+          
          <header id="page-topbar">
              <div class="navbar-header">
                  <div class="d-flex">

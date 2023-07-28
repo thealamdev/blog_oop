@@ -18,7 +18,7 @@ class Register
 
     public function addUser($request)
     {
-
+         
         function email_verification($name, $email, $remember_token)
         {
 

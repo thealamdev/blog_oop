@@ -1,8 +1,10 @@
   <?php
-include_once '../components/header.php';
-include_once '../components/sidebar.php';
-// include_file('Category.php');
-?>
+    include_once '../components/header.php';
+    include_once '../components/sidebar.php';
+    include_file('Category.php', array(__DIR__ . '/admin/AdminControllers'));
+    $category = new Category();
+     print_r($category->store($_POST));
+    ?>
 
   <div class="card">
       <div class="card-body">
@@ -13,12 +15,12 @@ include_once '../components/sidebar.php';
               <form class="custom-validation" action="#" method="POST">
                   <div class="mb-3">
                       <label class="form-label">Category Name</label>
-                      <input type="text" class="form-control" required="" placeholder="Type something">
+                      <input type="text" name="category_name" class="form-control" required="" placeholder="Type something">
                   </div>
 
                   <div>
                       <div>
-                          <button type="submit" class="btn btn-primary waves-effect waves-light me-1">
+                          <button type="submit" name="submit" class="btn btn-primary waves-effect waves-light me-1">
                               Submit
                           </button>
 
@@ -32,5 +34,5 @@ include_once '../components/sidebar.php';
   </div>
 
   <?php
-include_file('footer.php',array(__DIR__ .'/admin/components'));
-?>
+    include_file('footer.php', array(__DIR__ . '/admin/components'));
+    ?>
