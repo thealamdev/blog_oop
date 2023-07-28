@@ -16,9 +16,12 @@ class Category
         $name = $this->fr->validation($request['category_name']);
 
         if(!empty($name)){
-            // $insert_query = "INSERT INTO "
+            $insert_query = "INSERT INTO category(name) values('$name')";
+            $insert = $this->db->insert($insert_query);
+            
         }else{
-            $error = "Enter a category";
+            $error = "Enter a Category";
+            return $error;
         }
     }
 
