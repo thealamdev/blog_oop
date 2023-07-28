@@ -26,7 +26,7 @@ function include_file($filename) {
         $root_path . '/helpers',  
         $root_path . '/admin',
         $root_path . '/admin/category',
-        $root_path . '/admin/components'
+        $root_path . '/admin/AdminControllers'
     );
 
     // Search for the file in the specified directories
