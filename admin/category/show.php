@@ -33,7 +33,8 @@
                             <?php $date = strtotime($category['created_at']) ?>
                             <td><?=date('y-m-d',$date) ?></td>
                             <td>
-                                <a href="<?=$base. 'admin/AdminControllers/Category.php?id='.base64_encode($category['id'])?>" class="btn btn-primary">Edit</a>
+                                <a href="<?=$base. 'admin/AdminControllers/Category.php?id='.base64_encode($category['id'])?>"
+                                    class="btn btn-primary">Edit</a>
                                 <a href="#" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
@@ -43,10 +44,6 @@
                 </table>
             </div>
         </div>
-
-
-
-
 
     </div>
 </div>
