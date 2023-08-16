@@ -27,4 +27,5 @@ class Category
         $this->db = new Database();
         $this->fr = new Format();
     }
+    
 }
