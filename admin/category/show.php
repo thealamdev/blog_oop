@@ -1,11 +1,11 @@
 <?php
-    include_once '../components/header.php';
-    include_once '../components/sidebar.php';
-    include_file('Category.php', array(__DIR__ . '/admin/AdminControllers'));
-    $ct = new Category();
-    $categories = $ct->show();
+include_once '../components/header.php';
+include_once '../components/sidebar.php';
+include_file('Category.php', array(__DIR__ . '/admin/AdminControllers'));
+$ct = new Category();
+$categories = $ct->show();
 
-    ?>
+?>
 
 
 <div class="card">
@@ -26,18 +26,17 @@
                     </thead>
 
                     <tbody>
-                        <?php foreach($categories as $category){?>
-                        <tr>
-                            <td><?=$category['id']?></td>
-                            <td><?=$category['name']?></td>
-                            <?php $date = strtotime($category['created_at']) ?>
-                            <td><?=date('y-m-d',$date) ?></td>
-                            <td>
-                                <a href="<?=$base. 'admin/AdminControllers/Category.php?id='.base64_encode($category['id'])?>"
-                                    class="btn btn-primary">Edit</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                            </td>
-                        </tr>
+                        <?php foreach ($categories as $category) { ?>
+                            <tr>
+                                <td><?= $category['id'] ?></td>
+                                <td><?= $category['name'] ?></td>
+                                <?php $date = strtotime($category['created_at']) ?>
+                                <td><?= date('y-m-d', $date) ?></td>
+                                <td>
+                                    <a href="<?= $base . '/admin/AdminControllers/Category.php?id=' . base64_encode($category['id']) ?>" class="btn btn-primary">Edit</a>
+                                    <a href="#" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
                         <?php } ?>
 
                     </tbody>
@@ -49,5 +48,5 @@
 </div>
 
 <?php
-    include_file('footer.php', array(__DIR__ . '/admin/components'));
-    ?>
+include_file('footer.php', array(__DIR__ . '/admin/components'));
+?>
